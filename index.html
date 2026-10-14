@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive study planner that makes decisions using user input and previous actions.">
+  <title>Study Decision Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="./" class="logo">STUDY / STATE</a>
+    <p>CCT360 · Interactive Logic</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">THINK BEFORE YOU REACT</p>
+      <h1>What kind of study session do you need <em>right now?</em></h1>
+      <p class="intro-copy">Give the planner a few honest details. Its recommendation changes with your energy, time, distractions, and previous progress.</p>
+    </section>
+
+    <section class="planner" aria-label="Study session planner">
+      <form id="decision-form" class="input-panel">
+        <div class="panel-heading">
+          <span>01</span>
+          <div>
+            <p class="eyebrow">YOUR INPUT</p>
+            <h2>Check in with yourself.</h2>
+          </div>
+        </div>
+
+        <label for="task">What are you working on?</label>
+        <input id="task" name="task" type="text" placeholder="Example: Finance review" maxlength="50" required>
+
+        <div class="range-heading">
+          <label for="energy">Current energy</label>
+          <output id="energy-value" for="energy">3 / 5</output>
+        </div>
+        <input id="energy" name="energy" type="range" min="1" max="5" value="3">
+        <div class="range-labels"><span>Drained</span><span>Fully alert</span></div>
+
+        <label for="minutes">Time available</label>
+        <select id="minutes" name="minutes">
+          <option value="15">15 minutes</option>
+          <option value="30" selected>30 minutes</option>
+          <option value="60">60 minutes</option>
+        </select>
+
+        <label class="check-row">
+          <input id="distracted" name="distracted" type="checkbox">
+          <span>I am getting distracted easily</span>
+        </label>
+
+        <button class="primary-button" type="submit">Build my session <span>→</span></button>
+      </form>
+
+      <section id="result-panel" class="result-panel state-ready" aria-live="polite">
+        <div class="panel-heading">
+          <span>02</span>
+          <div>
+            <p class="eyebrow">THE DECISION</p>
+            <h2 id="result-title">Ready when you are.</h2>
+          </div>
+        </div>
+
+        <div class="state-visual" aria-hidden="true">
+          <span id="state-icon">?</span>
+        </div>
+
+        <p id="result-message" class="result-message">Complete the check-in to receive a personalized plan.</p>
+
+        <div id="plan-details" class="plan-details" hidden>
+          <p><span>FOCUS</span><strong id="plan-focus">—</strong></p>
+          <p><span>LENGTH</span><strong id="plan-length">—</strong></p>
+          <p><span>FIRST MOVE</span><strong id="plan-action">—</strong></p>
+        </div>
+
+        <button id="complete-button" class="secondary-button" type="button" disabled>Mark session complete</button>
+      </section>
+    </section>
+
+    <section class="progress-card" aria-live="polite">
+      <div>
+        <p class="eyebrow">PREVIOUS ACTIONS</p>
+        <h2>Your progress changes the response.</h2>
+      </div>
+      <div class="progress-number"><strong id="completed-count">0</strong><span>sessions completed</span></div>
+      <p id="progress-message">Finish a recommended session to start building momentum.</p>
+      <button id="reset-button" type="button">Reset progress</button>
+    </section>
+  </main>
+
+  <footer>
+    <span>VARIABLES</span>
+    <span>CONDITIONAL LOGIC</span>
+    <span>JAVASCRIPT STATE</span>
+  </footer>
+</body>
+</html>

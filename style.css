@@ -1,0 +1,394 @@
+:root {
+  --ink: #15211d;
+  --paper: #f5f2e9;
+  --panel: #fffdf7;
+  --line: #c9cec6;
+  --green: #2f684f;
+  --orange: #dc7044;
+  --yellow: #e6b94f;
+  --blue: #5b7da0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.site-header,
+main,
+footer {
+  width: min(1180px, 90%);
+  margin-inline: auto;
+}
+
+.site-header {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header p,
+.logo,
+.eyebrow,
+footer {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.logo {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-header p {
+  color: #667069;
+}
+
+.intro {
+  padding: 74px 0 56px;
+  max-width: 900px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--green);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 26px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 6.7rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+h1 em {
+  color: var(--green);
+}
+
+.intro-copy {
+  max-width: 620px;
+  color: #5f6862;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.planner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.input-panel,
+.result-panel {
+  min-height: 620px;
+  padding: clamp(28px, 5vw, 60px);
+}
+
+.input-panel {
+  border-right: 1px solid var(--line);
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 42px;
+}
+
+.panel-heading > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 0.7rem;
+}
+
+.panel-heading h2,
+.progress-card h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+label,
+.range-heading {
+  display: block;
+  margin: 26px 0 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 15px 14px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.range-heading,
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.range-heading label {
+  margin: 0;
+}
+
+.range-heading output {
+  color: var(--green);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--green);
+}
+
+.range-labels {
+  color: #778079;
+  font-size: 0.68rem;
+}
+
+.check-row {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  padding: 18px 0;
+  font-weight: 400;
+}
+
+.check-row input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.primary-button,
+.secondary-button {
+  width: 100%;
+  padding: 16px 18px;
+  border: 0;
+  font-weight: 700;
+}
+
+.primary-button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  background: var(--ink);
+  color: white;
+}
+
+.primary-button:hover {
+  background: var(--green);
+}
+
+.result-panel {
+  transition: background 0.3s ease;
+}
+
+.state-visual {
+  display: grid;
+  width: 126px;
+  height: 126px;
+  margin: 20px auto 34px;
+  place-items: center;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.2rem;
+}
+
+.result-message {
+  min-height: 58px;
+  color: #525d56;
+  line-height: 1.6;
+}
+
+.plan-details {
+  margin: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+.plan-details p {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  gap: 16px;
+  margin: 0;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.plan-details span {
+  color: #707971;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.plan-details strong {
+  font-size: 0.88rem;
+}
+
+.secondary-button {
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+}
+
+.secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.state-recharge {
+  background: #e7edf2;
+  color: var(--blue);
+}
+
+.state-reset {
+  background: #f8e7dc;
+  color: var(--orange);
+}
+
+.state-steady {
+  background: #fbf1d5;
+  color: #856612;
+}
+
+.state-deep {
+  background: #e2ecdf;
+  color: var(--green);
+}
+
+.result-panel .panel-heading h2,
+.result-panel .result-message,
+.result-panel .plan-details strong {
+  color: var(--ink);
+}
+
+.progress-card {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr 1fr auto;
+  gap: 35px;
+  align-items: center;
+  margin-top: 26px;
+  padding: 34px;
+  border: 1px solid var(--line);
+}
+
+.progress-number {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-number strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.4rem;
+  font-weight: 400;
+}
+
+.progress-number span,
+#progress-message {
+  color: #606a63;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+#reset-button {
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  padding: 5px 0;
+  font-size: 0.72rem;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  padding: 24px 0 34px;
+  border-top: 1px solid var(--line);
+  color: #6c756e;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+@media (max-width: 800px) {
+  .planner {
+    grid-template-columns: 1fr;
+  }
+
+  .input-panel {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .progress-card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header p {
+    display: none;
+  }
+
+  .intro {
+    padding-top: 48px;
+  }
+
+  .input-panel,
+  .result-panel {
+    min-height: auto;
+    padding: 28px 22px;
+  }
+
+  .progress-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
